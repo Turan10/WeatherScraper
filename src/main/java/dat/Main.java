@@ -9,12 +9,11 @@ public class Main {
     public static void main(String[] args) {
         WeatherScraper weatherScraper = new WeatherScraper();
 
-        WeatherDTO weatherDTO = weatherScraper.scrapeWeather("copenhagen");
+        WeatherDTO weatherDTO = weatherScraper.scrapeWeather();
+
         Serialization serialization = new Serialization();
         String json = serialization.serialize(weatherDTO);
-        serialization.JsonToFile(json, "WeatherForecast.json");
-
-
+        serialization.JsonToFile("WeatherForecast.json", json);
     }
 }
 

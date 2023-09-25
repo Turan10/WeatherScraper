@@ -13,6 +13,11 @@ public class WeatherDTO {
     private int humidity;
     private int rainfallinmm;
 
+    private String location;
+    private String date;
+    private String tempo;
+    private String rain;
+
 
     public int FehrenheitToCelcius(int temp) {
         return (int) ((temp - 32) * 5 / 9);
