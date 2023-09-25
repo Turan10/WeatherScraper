@@ -1,3 +1,4 @@
+/*
 package setup;
 
 import dto.WeatherDTO;
@@ -37,7 +38,7 @@ public class WeatherScraper {
             weatherDTO = WeatherDTO.builder()
                     .temp(temperature)
                     .humidity(humidity)
-                    .rainfallinmm(rainfall)
+                    .rain(rainfall)
                     .build();
 
             //int celcius = weatherDTO.FehrenheitToCelcius(temperature);
@@ -52,3 +53,4 @@ return weatherDTO;
 return weatherDTO;
     }
 }
+*/

@@ -9,26 +9,23 @@ import lombok.*;
 
 @Builder
 public class WeatherDTO {
-    private int temp;
-    private int humidity;
-    private int rainfallinmm;
-
     private String location;
-    private String date;
-    private String tempo;
-    private String rain;
+    private int date;
+    private int temp;
+    private int rain;
+    private int humidity;
 
 
     public int FehrenheitToCelcius(int temp) {
         return (int) ((temp - 32) * 5 / 9);
     }
 
-    @Override
+/*    @Override
     public String toString() {
         return "WeatherDTO{" +
                 "temp=" + temp + "" + "C" +
-                ", humidity=" + humidity + "%" +
+                ", humidity=" + rain + "%" +
                 ", rainfallinmm=" + rainfallinmm + "mm" +
                 '}';
-    }
+    }*/
 }

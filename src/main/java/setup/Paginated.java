@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Paginated {
+
+    Document document = null;
+    WeatherDTO weatherDTO = null;
     public static void main(String[] args) {
 
         String url = "https://weather.com/da-DK/weather/tenday/l/92d08441e183caf58d83600630214143efe0aea795ef69df0009011b395e16a8";
@@ -20,19 +23,20 @@ public class Paginated {
 
 
             table.select("details > summary").forEach(tr -> {
+                // String spans = tr.select("details > summary").first().text();
+                // String date, temp, rain;
+                String temp = tr.select("span.DetailsSummary--highTempValue--3PjlX").text();
+                
 
-                System.out.println(tr.select(".DetailsSummary--temperature--1kVVp").text());
-               // String spans = tr.select("details > summary").first().text();
-               // String date, temp, rain;
 
 
-              //  elementList.add(spans);
+                //int date = Integer.parseInt(tr.select(".DailyContent--daypartDate--3VGlz").text());
+               // int rain = Integer.parseInt(tr.select(".DailyContent--value--1Jers").text());
+               // int humidity = Integer.parseInt(tr.select(".DetailsTable--listItem--Z-5Vi").text());
 
-                /*WeatherDTO weatherDTO = WeatherDTO.builder()
-                        .date(getLocalDate(date))
-                        .temp(temp)
-                        .rain(rain)
-                        .build();*/
+                //  elementList.add(spans);
+
+
             });
 
             //System.out.println(elementList.size());
