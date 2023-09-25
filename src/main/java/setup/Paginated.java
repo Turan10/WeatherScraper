@@ -25,8 +25,14 @@ public class Paginated {
             table.select("details > summary").forEach(tr -> {
                 // String spans = tr.select("details > summary").first().text();
                 // String date, temp, rain;
+
+                String date = tr.select("h3.DetailsSummary--daypartName--kbngc").text();
+
                 String temp = tr.select("span.DetailsSummary--highTempValue--3PjlX").text();
-                
+
+                String rain = tr.select(".DetailsSummary--precip--1a98O span").text();
+
+
 
 
 
