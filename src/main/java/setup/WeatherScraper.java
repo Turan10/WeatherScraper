@@ -27,6 +27,7 @@ public class WeatherScraper {
 
 
             weatherDTO = WeatherDTO.builder()
+                    .city(city)
                     .temp(temperture)
                     .humidity(humidity)
                     .rainfallinmm(rainfall)

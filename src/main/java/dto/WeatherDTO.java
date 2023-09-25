@@ -9,6 +9,7 @@ import lombok.*;
 
 @Builder
 public class WeatherDTO {
+    private String city;
     private int temp;
     private int humidity;
     private int rainfallinmm;

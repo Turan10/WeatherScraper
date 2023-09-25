@@ -20,7 +20,8 @@ public class Serialization {
 
     public void JsonToFile(String json, String filename) {
 
-        try(FileWriter file = new FileWriter("WeatherForecast.json", true)) {
+
+        try(FileWriter file = new FileWriter(filename, true)) {
             file.write(json + "\n");
         } catch (IOException e) {
             e.printStackTrace();
