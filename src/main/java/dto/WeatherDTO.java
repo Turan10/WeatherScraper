@@ -6,25 +6,18 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
+@ToString
 @Builder
 public class WeatherDTO {
-    private String city;
+    private String location;
+    private String date;
     private int temp;
-    private int humidity;
-    private int rainfallinmm;
+    private int chanceOfRain;
+    private String wind;
 
 
     public int FehrenheitToCelcius(int temp) {
         return (int) ((temp - 32) * 5 / 9);
     }
 
-    @Override
-    public String toString() {
-        return "WeatherDTO{" +
-                "temp=" + temp + "" + "C" +
-                ", humidity=" + humidity + "%" +
-                ", rainfallinmm=" + rainfallinmm + "mm" +
-                '}';
-    }
 }

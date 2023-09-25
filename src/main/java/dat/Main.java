@@ -2,18 +2,23 @@ package dat;
 
 
 import dto.WeatherDTO;
+import setup.Paginated;
 import setup.Serialization;
-import setup.WeatherScraper;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        WeatherScraper weatherScraper = new WeatherScraper();
+        Paginated weatherScraper = new Paginated();
+        List<WeatherDTO> weatherDTOList = weatherScraper.scrapeWeather();
 
-        WeatherDTO weatherDTO = weatherScraper.scrapeWeather("copenhagen");
         Serialization serialization = new Serialization();
-        String json = serialization.serialize(weatherDTO);
-        serialization.JsonToFile(json, "src/main/resources/WeatherForecast.json");
+        /*for (WeatherDTO weatherDTO: weatherDTOList){
+            String json = serialization.serialize(weatherDTO);
+            //serialization.JsonToFile(json, "src/main/resources/WeatherForecast.json");
+        }*/
 
+        serialization.listToJsonFile(weatherDTOList, "src/main/resources/WeatherForecast.json");
 
     }
 }

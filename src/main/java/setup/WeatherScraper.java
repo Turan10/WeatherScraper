@@ -1,3 +1,4 @@
+/*
 package setup;
 
 import dto.WeatherDTO;
@@ -8,34 +9,41 @@ import java.io.IOException;
 
 public class WeatherScraper {
 
-    public WeatherDTO scrapeWeather(String city) {
-        String url = "https://www.wunderground.com/weather/dk/" + city;
+    public WeatherDTO scrapeWeather() {
+        String url = "https://weather.com/da-DK/weather/tenday/l/92d08441e183caf58d83600630214143efe0aea795ef69df0009011b395e16a8";
         Document document = null;
         WeatherDTO weatherDTO = null;
 
 
         try {
-            document = Jsoup.connect(url).header("Accept-Language", "en-GB;q=0.5").get();
+            document = Jsoup.connect(url).get();
 
-            String tempTemperture = document.select("#inner-content > div.region-content-main > div:nth-child(1) > div > div:nth-child(1) > div:nth-child(1) > lib-city-current-conditions > div > div.conditions-circle-wrap.small-12.medium-7.columns.text-center > div > div > div.current-temp > lib-display-unit > span > span.wu-value.wu-value-to").text();
-            String tempHumidity = document.select("#inner-content > div.region-content-main > div:nth-child(2) > div > div.row.city-forecast > div:nth-child(1) > lib-additional-conditions > lib-item-box > div > div.content > div > div:nth-child(5) > div.small-8.columns > lib-display-unit > span > span.wu-value.wu-value-to").text();
-            String tempRainfall = document.select("#inner-content > div.region-content-main > div:nth-child(2) > div > div.row.city-forecast > div:nth-child(1) > lib-additional-conditions > lib-item-box > div > div.content > div > div:nth-child(6) > div.small-8.columns > lib-display-unit > span > span.wu-value.wu-value-to").text();
+            String tempTemperature = document.selectXpath("/html/body/div[1]/main/div[2]/main/div[1]/section/div[2]/div[2]/details[1]/div/div[1]/div/div[1]/span").text();
+            String tempHumidity = document.select("#detailIndex0 > div:nth-child(2) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(1) > div:nth-child(2) > span:nth-child(2)").text();
+            String tempRainfall = document.select("#detailIndex0 > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > span:nth-child(2)").text();
 
-            int temperture = Integer.parseInt(tempTemperture.replaceAll("[^0-9.]", ""));
-            int humidity = Integer.parseInt(tempHumidity.replaceAll("[^0-9.]", ""));
-            int rainfall = Integer.parseInt(tempRainfall.replaceAll("[^0-9.]", ""));
 
+            System.out.println("Temparature" +tempTemperature);
+            System.out.println("Humidity" +tempHumidity);
+            System.out.println("Rainfall" +tempRainfall);
+
+            int temperature = Integer.parseInt(tempTemperature.replaceAll("°", ""));
+            int humidity = Integer.parseInt(tempHumidity.replaceAll("%", ""));
+            int rainfall = Integer.parseInt(tempRainfall.replaceAll("%", ""));
+
+            System.out.println(temperature);
+            System.out.println(humidity);
+            System.out.println(rainfall);
 
             weatherDTO = WeatherDTO.builder()
-                    .city(city)
-                    .temp(temperture)
+                    .temp(temperature)
                     .humidity(humidity)
-                    .rainfallinmm(rainfall)
+                    .rain(rainfall)
                     .build();
 
-            int celcius = weatherDTO.FehrenheitToCelcius(temperture);
-            weatherDTO.setTemp(celcius);
-            System.out.println(weatherDTO.toString());
+            //int celcius = weatherDTO.FehrenheitToCelcius(temperature);
+           // weatherDTO.setTemp(celcius);
+           // System.out.println(weatherDTO.toString());
 
 return weatherDTO;
 
@@ -45,3 +53,4 @@ return weatherDTO;
 return weatherDTO;
     }
 }
+*/

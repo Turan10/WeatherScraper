@@ -1,1 +1,15 @@
-{"temp":17,"humidity":71,"rainfallinmm":0}
+{"date":"I aften","temp":12,"chanceOfRain":12,"wind":"S 18 km/t."}
+{"date":"tir. 26","temp":19,"chanceOfRain":14,"wind":"SSØ 14 km/t."}
+{"date":"ons. 27","temp":21,"chanceOfRain":14,"wind":"S 12 km/t."}
+{"date":"tor. 28","temp":22,"chanceOfRain":14,"wind":"S 20 km/t."}
+{"date":"fre. 29","temp":19,"chanceOfRain":64,"wind":"SV 22 km/t."}
+{"date":"lør. 30","temp":18,"chanceOfRain":10,"wind":"V 26 km/t."}
+{"date":"søn. 01","temp":18,"chanceOfRain":49,"wind":"SV 16 km/t."}
+{"date":"man. 02","temp":19,"chanceOfRain":64,"wind":"SV 23 km/t."}
+{"date":"tir. 03","temp":18,"chanceOfRain":56,"wind":"VSV 22 km/t."}
+{"date":"ons. 04","temp":17,"chanceOfRain":31,"wind":"VSV 20 km/t."}
+{"date":"tor. 05","temp":16,"chanceOfRain":39,"wind":"VSV 20 km/t."}
+{"date":"fre. 06","temp":16,"chanceOfRain":24,"wind":"SV 22 km/t."}
+{"date":"lør. 07","temp":16,"chanceOfRain":24,"wind":"SV 21 km/t."}
+{"date":"søn. 08","temp":16,"chanceOfRain":42,"wind":"SV 23 km/t."}
+{"date":"man. 09","temp":16,"chanceOfRain":40,"wind":"SSV 21 km/t."}
