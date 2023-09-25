@@ -27,20 +27,17 @@ public class Serialization {
       String starttext = "{ \n \"weathers\" : [ \n";
         String endtext = "] \n }";
 
-        for (WeatherDTO weatherDTO : weatherDTOList) {
-            JsonElement jsonElement = gson.toJsonTree(weatherDTO);
-        }
         try (FileWriter file = new FileWriter(filename, false)) {
 
        file.write(starttext);
        int lastindex = -1;
 
-       for(int i = 0; i < weatherDTOList.size()-1; i++) {
+       for(int i = 0; i < weatherDTOList.size()-2; i++) {
            String json = gson.toJson(weatherDTOList.get(i));
            file.write(json + ", \n");
            lastindex = i;
        }
-       String json = gson.toJson(weatherDTOList.get(lastindex));
+       String json = gson.toJson(weatherDTOList.get(lastindex+1));
        file.write(json + "\n");
 
          file.write(endtext);
