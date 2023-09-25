@@ -11,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
         Paginated weatherScraper = new Paginated();
         List<WeatherDTO> weatherDTOList = weatherScraper.scrapeWeather();
+        System.out.println(weatherDTOList);
 
         Serialization serialization = new Serialization();
         /*for (WeatherDTO weatherDTO: weatherDTOList){
@@ -18,7 +19,7 @@ public class Main {
             //serialization.JsonToFile(json, "src/main/resources/WeatherForecast.json");
         }*/
 
-        serialization.listToJsonFile(weatherDTOList, "src/main/resources/WeatherForecast.json");
+       // serialization.listToJsonFile(weatherDTOList, "src/main/resources/WeatherForecast.json");
 
     }
 }

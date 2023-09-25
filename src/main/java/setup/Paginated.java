@@ -1,5 +1,6 @@
 package setup;
 
+import dto.ApiWeatherDTO;
 import dto.WeatherDTO;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -17,6 +18,11 @@ public class Paginated {
 
     public List<WeatherDTO> scrapeWeather() {
         List<WeatherDTO> weatherDTOList = new ArrayList<>();
+
+        // Problem our API is only fetching the current weather and not the forecast
+        ApiReader apiReader = new ApiReader();
+        ApiWeatherDTO apiWeatherDTO = apiReader.getWeatherFromApi("Copenhagen");
+
 
         String url = "https://weather.com/da-DK/weather/tenday/l/92d08441e183caf58d83600630214143efe0aea795ef69df0009011b395e16a8";
         Document document = null;
@@ -37,11 +43,14 @@ public class Paginated {
 
                 String wind = tr.select(".DetailsSummary--wind--1tv7t.DetailsSummary--extendedData--307Ax > span").text();
 
+
+
                 WeatherDTO weatherDTO = WeatherDTO.builder()
                         .date(date)
                         .temp(Integer.parseInt(temp))
                         .chanceOfRain(Integer.parseInt(chanceOfRain.replace("%","")))
                         .wind(wind)
+                        .currentData(apiWeatherDTO.getCurrentData())
                         .build();
 
                 weatherDTOList.add(weatherDTO);
