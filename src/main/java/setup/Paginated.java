@@ -13,7 +13,10 @@ public class Paginated {
 
     Document document = null;
     WeatherDTO weatherDTO = null;
-    public static void main(String[] args) {
+    //public static void main(String[] args) {
+
+    public List<WeatherDTO> scrapeWeather() {
+        List<WeatherDTO> weatherDTOList = new ArrayList<>();
 
         String url = "https://weather.com/da-DK/weather/tenday/l/92d08441e183caf58d83600630214143efe0aea795ef69df0009011b395e16a8";
         Document document = null;
@@ -23,33 +26,31 @@ public class Paginated {
 
 
             table.select("details > summary").forEach(tr -> {
-                // String spans = tr.select("details > summary").first().text();
-                // String date, temp, rain;
-
                 String date = tr.select("h3.DetailsSummary--daypartName--kbngc").text();
 
-                String temp = tr.select("span.DetailsSummary--highTempValue--3PjlX").text();
+                String temp = tr.select("span.DetailsSummary--highTempValue--3PjlX").text().replace("°","");
+                if(temp.equals("--")){
+                    temp = tr.select(".DetailsSummary--lowTempValue--2tesQ").text().replaceAll("°","");
+                }
 
-                String rain = tr.select(".DetailsSummary--precip--1a98O span").text();
+                String chanceOfRain = tr.select(".DetailsSummary--precip--1a98O span").text();
 
+                String wind = tr.select(".DetailsSummary--wind--1tv7t.DetailsSummary--extendedData--307Ax > span").text();
 
+                WeatherDTO weatherDTO = WeatherDTO.builder()
+                        .date(date)
+                        .temp(Integer.parseInt(temp))
+                        .chanceOfRain(Integer.parseInt(chanceOfRain.replace("%","")))
+                        .wind(wind)
+                        .build();
 
-
-
-                //int date = Integer.parseInt(tr.select(".DailyContent--daypartDate--3VGlz").text());
-               // int rain = Integer.parseInt(tr.select(".DailyContent--value--1Jers").text());
-               // int humidity = Integer.parseInt(tr.select(".DetailsTable--listItem--Z-5Vi").text());
-
-                //  elementList.add(spans);
-
-
+                weatherDTOList.add(weatherDTO);
             });
-
-            //System.out.println(elementList.size());
 
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return weatherDTOList;
     }
 }
