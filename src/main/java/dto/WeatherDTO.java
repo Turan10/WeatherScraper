@@ -14,12 +14,10 @@ public class WeatherDTO {
     private int temp;
     private int chanceOfRain;
     private String wind;
-   private CurrentData currentData;
-
+    private CurrentData currentData;
 
 
     public int FehrenheitToCelcius(int temp) {
         return (int) ((temp - 32) * 5 / 9);
     }
-
 }
