@@ -10,8 +10,6 @@ import lombok.ToString;
 @ToString
 @Builder
 public class CurrentData {
-    private String temperature;
     private String skyText;
     private String humidity;
-    private String windText;
 }
