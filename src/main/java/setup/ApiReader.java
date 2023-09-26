@@ -33,11 +33,9 @@ public class ApiReader {
 
             Request request = new Request.Builder()
                     .url(url)
-                      .get()
+                    .get()
                     .addHeader("accept", "application/json")
                     .build();
-
-
 
             try (Response response = client.newCall(request).execute()) {
                 if (!response.isSuccessful()) {
@@ -48,7 +46,6 @@ public class ApiReader {
                     serialization.JsonToFile(jsonData, "src/main/resources/ApiForecast.json");
 
                     weatherApiDto = gson.fromJson(jsonData, ApiWeatherDTO.class);
-
 
 
                 }

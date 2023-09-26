@@ -1,6 +1,7 @@
 package setup;
 
 import dto.ApiWeatherDTO;
+import dto.CurrentData;
 import dto.WeatherDTO;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -30,7 +31,6 @@ public class Paginated {
             document = Jsoup.connect(url).get();
             Element table = document.select(".DailyForecast--DisclosureList--nosQS").first();
 
-
             table.select("details > summary").forEach(tr -> {
                 String date = tr.select("h3.DetailsSummary--daypartName--kbngc").text();
 
@@ -42,8 +42,6 @@ public class Paginated {
                 String chanceOfRain = tr.select(".DetailsSummary--precip--1a98O span").text();
 
                 String wind = tr.select(".DetailsSummary--wind--1tv7t.DetailsSummary--extendedData--307Ax > span").text();
-
-
 
                 WeatherDTO weatherDTO = WeatherDTO.builder()
                         .date(date)

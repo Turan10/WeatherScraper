@@ -14,7 +14,7 @@ public class WeatherDTO {
     private int temp;
     private int chanceOfRain;
     private String wind;
-   private CurrentData currentData;
+    private CurrentData currentData;
 
 
 
