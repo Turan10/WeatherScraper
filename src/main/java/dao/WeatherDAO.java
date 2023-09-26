@@ -7,7 +7,7 @@ import jakarta.persistence.Persistence;
 
 import java.util.List;
 
-public class WeatherDAO {
+/*public class WeatherDAO {
 
     private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("your_persistence_unit_name");
     private EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -45,4 +45,4 @@ public class WeatherDAO {
         entityManager.close();
         entityManagerFactory.close();
     }
-}
+}*/

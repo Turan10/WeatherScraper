@@ -1,5 +1,8 @@
 package config;
 
+import Entities.ApiWeatherEntity;
+import Entities.CurrentDataEntity;
+import Entities.WeatherEntity;
 import jakarta.persistence.EntityManagerFactory;
 import lombok.NoArgsConstructor;
 import org.hibernate.SessionFactory;
@@ -55,7 +58,10 @@ public class HibernateConfig {
 
     private static void getAnnotationConfiguration(Configuration configuration) {
         // add annotated classes
-        // configuration.addAnnotatedClass(<YOUR ENTITY>.class);
+         configuration.addAnnotatedClass(ApiWeatherEntity.class);
+         configuration.addAnnotatedClass(CurrentDataEntity.class);
+         configuration.addAnnotatedClass(WeatherEntity.class);
+
     }
 
     public static EntityManagerFactory getEntityManagerFactoryConfig() {
