@@ -1,6 +1,7 @@
 package dto;
 
 
+import com.google.gson.annotations.SerializedName;
 import lombok.*;
 
 
@@ -13,7 +14,9 @@ import lombok.*;
 @Builder
 public class ApiWeatherDTO {
     private String LocationName;
-    private CurrentData CurrentData;
+    @SerializedName("CurrentData")
+    private CurrentDataDTO currentData;
+
 
 
 

@@ -1,7 +1,6 @@
 package setup;
 
 import dto.WeatherDTO;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,14 +8,14 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PaginatedTest {
+class ScrapeWeatherTest {
     List<WeatherDTO> testList;
 
     @BeforeEach
     public void setUp(){
-        Paginated paginated = new Paginated();
+        ScrapeWeather scrapeWeather = new ScrapeWeather();
 
-        testList = paginated.scrapeWeather();
+        testList = scrapeWeather.scrapeWeather();
     }
 
     @Test
@@ -63,7 +62,7 @@ class PaginatedTest {
         assertFalse(testList.isEmpty());
 
         for (WeatherDTO dto : testList) {
-            assertNotNull(dto.getCurrentData());
+            assertNotNull(dto.getCurrentDataDTO());
         }
     }
 

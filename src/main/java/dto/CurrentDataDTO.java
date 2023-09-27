@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Builder
-public class CurrentData {
+public class CurrentDataDTO {
     private String skyText;
     private String humidity;
 }

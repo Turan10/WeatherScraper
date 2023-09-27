@@ -1,5 +1,6 @@
 package dto;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.*;
 
 @Getter
@@ -9,12 +10,13 @@ import lombok.*;
 @ToString
 @Builder
 public class WeatherDTO {
-    private String location;
+
     private String date;
     private int temp;
     private int chanceOfRain;
     private String wind;
-    private CurrentData currentData;
+
+
 
 
 
