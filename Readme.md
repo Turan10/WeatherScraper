@@ -22,7 +22,7 @@ To avoid this, we must validate the data we receive every time from the external
 If the database goes down or we are unable to establish a connection, it implies that we cannot persist and find the entities that need to be used/created.
 
 ## ERD Diagram
-
+![eer.png](eer.png)
 
 ## Pending Tasks
 - Implementation of DAO interface.
