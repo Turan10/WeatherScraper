@@ -13,14 +13,6 @@ public class WeatherDao {
         em.persist(entity);
     }
 
-    public <T> T find(Class<T> entityClass, Object primaryKey) {
-        EntityManager em = EntityManagerInit.getEntityManagerFactory().createEntityManager();
-        try {
-            return em.find(entityClass, primaryKey);
-        } finally {
-            em.close();
-        }
-    }
 
     public Location findLocationByName(EntityManager em, String locationName) {
         TypedQuery<Location> query = em.createQuery(
