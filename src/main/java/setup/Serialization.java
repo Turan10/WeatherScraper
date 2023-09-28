@@ -21,9 +21,7 @@ import java.util.List;
 public class Serialization {
     Gson gson = new Gson();
 
-    public String serialize(Object object) {
-        return gson.toJson(object);
-    }
+
 
     public void JsonToFile(String json, String filename) {
         try (FileWriter file = new FileWriter(filename, true)) {
@@ -57,14 +55,7 @@ public class Serialization {
         }
     }
 
-    public ApiWeatherDTO readWeatherFromJson(String filename) {
-        try (Reader reader = new FileReader(filename)) {
-            return new Gson().fromJson(reader, ApiWeatherDTO.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+
 
 
 }

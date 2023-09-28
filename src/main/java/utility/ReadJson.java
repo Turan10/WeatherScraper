@@ -18,33 +18,6 @@ public class ReadJson<T>{
 
     private final Gson gson = new Gson();
 
-    public List<T> readDataFromJson(String filename, Class<T> dtoClass) {
-        List<T> dataList = new ArrayList<>();
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                T data = gson.fromJson(line, dtoClass);
-                dataList.add(data);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return dataList;
-    }
-
-
-
-    public T readEntireJsonFile(String filename, Class<T> dtoClass) {
-        T data = null;
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
-            data = gson.fromJson(reader, dtoClass);
-        } catch (IOException | JsonSyntaxException e) {
-            e.printStackTrace();
-        }
-        return data;
-    }
-
 
     public List<WeatherDTO> deserializeScrapedWeatherData(String jsonPath) {
         try {

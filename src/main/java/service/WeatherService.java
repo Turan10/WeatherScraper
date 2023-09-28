@@ -48,11 +48,5 @@ public class WeatherService {
         return location;
     }
 
-    public void saveApiWeather(EntityManager em, ApiWeather apiWeather) {
-        weatherDAO.save(em, apiWeather);
-    }
 
-    public void saveWeatherForecast(EntityManager em, WeatherForecast forecast) {
-        weatherDAO.save(em, forecast);
-    }
 }

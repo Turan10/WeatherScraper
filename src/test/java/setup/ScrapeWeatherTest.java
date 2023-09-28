@@ -56,15 +56,6 @@ class ScrapeWeatherTest {
         }
     }
 
-    @Test
-    void isEnriched() {
-        assertNotNull(testList);
-        assertFalse(testList.isEmpty());
-
-        for (WeatherDTO dto : testList) {
-            assertNotNull(dto.getCurrentDataDTO());
-        }
-    }
 
 
 }
