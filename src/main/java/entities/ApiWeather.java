@@ -16,11 +16,14 @@ public class ApiWeather {
     @JoinColumn(name = "location_id", nullable = false)
     private Location location;
 
+
+    //Change to LocalDate
     @Column(name = "forecast_date")
     private String forecastDate;
 
-    @Column(name = "weather_condition")
-    private String weatherCondition;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "current_weather_data_id")
+    private CurrentWeatherData currentWeatherData;
 
 }
 

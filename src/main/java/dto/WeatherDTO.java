@@ -19,9 +19,4 @@ public class WeatherDTO {
 
 
 
-
-    public int FehrenheitToCelcius(int temp) {
-        return (int) ((temp - 32) * 5 / 9);
-    }
-
 }

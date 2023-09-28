@@ -18,24 +18,14 @@ public class WeatherService {
         Location location = fetchOrCreateLocation(em, dto.getLocationName());
         apiWeather.setLocation(location);
         apiWeather.setForecastDate(LocalDate.now().toString());
-        apiWeather.setWeatherCondition(dto.getCurrentData().getSkyText());
-
-        return apiWeather;
-    }
-
-    public WeatherData mapApiDtoToWeatherDataEntity(EntityManager em, ApiWeatherDTO dto) {
-        WeatherData weatherData = new WeatherData();
-
-        Location location = fetchOrCreateLocation(em, dto.getLocationName());
-        weatherData.setLocation(location);
 
         CurrentWeatherData currentData = new CurrentWeatherData();
         currentData.setSkyText(dto.getCurrentData().getSkyText());
         currentData.setHumidity(dto.getCurrentData().getHumidity());
 
-        weatherData.setCurrentWeatherData(currentData);
+        apiWeather.setCurrentWeatherData(currentData);
 
-        return weatherData;
+        return apiWeather;
     }
 
     public WeatherForecast mapDtoToWeatherForecastEntity(WeatherDTO dto) {
@@ -60,14 +50,6 @@ public class WeatherService {
 
     public void saveApiWeather(EntityManager em, ApiWeather apiWeather) {
         weatherDAO.save(em, apiWeather);
-    }
-
-    public void saveWeatherData(EntityManager em, WeatherData weatherData) {
-        // Save associated entities first
-        if(weatherData.getCurrentWeatherData() != null && weatherData.getCurrentWeatherData().getId() == null) {
-            weatherDAO.save(em, weatherData.getCurrentWeatherData());
-        }
-        weatherDAO.save(em, weatherData);
     }
 
     public void saveWeatherForecast(EntityManager em, WeatherForecast forecast) {

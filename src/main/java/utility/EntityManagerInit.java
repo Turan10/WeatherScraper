@@ -13,6 +13,9 @@ public class EntityManagerInit {
     }
 
     public static EntityManagerFactory getEntityManagerFactory() {
+        if(emFactory == null) {
+            emFactory = HibernateConfig.getEntityManagerFactoryConfig();
+        }
         return emFactory;
     }
 }

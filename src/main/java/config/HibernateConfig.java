@@ -56,7 +56,6 @@ public class HibernateConfig {
     private static void getAnnotationConfiguration(Configuration configuration) {
 
         configuration.addAnnotatedClass(entities.ApiWeather.class);
-        configuration.addAnnotatedClass(entities.WeatherData.class);
         configuration.addAnnotatedClass(entities.Location.class);
         configuration.addAnnotatedClass(entities.WeatherForecast.class);
         configuration.addAnnotatedClass(entities.CurrentWeatherData.class);
