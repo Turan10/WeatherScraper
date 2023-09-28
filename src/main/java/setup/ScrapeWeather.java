@@ -17,8 +17,6 @@ public class ScrapeWeather {
     public List<WeatherDTO> scrapeWeather() {
         List<WeatherDTO> weatherDTOList = new ArrayList<>();
 
-        ApiReader apiReader = new ApiReader();
-        ApiWeatherDTO apiWeatherDTO = apiReader.getWeatherFromApi("Copenhagen");
 
         try {
             Document document = Jsoup.connect(URL).get();
